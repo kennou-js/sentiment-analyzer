@@ -1,0 +1,370 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .input-section, .history-section {
+        grid-column: 1;
+    }
+    
+    .results-section, .chart-section {
+        grid-column: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+    
+    .input-section { grid-column: 1; grid-row: 1; }
+    .results-section { grid-column: 2; grid-row: 1; }
+    .chart-section { grid-column: 3; grid-row: 1; }
+    .history-section { grid-column: 1 / span 3; grid-row: 2; }
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #2d3436;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Text Input Section */
+.text-input-container {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 16px;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.input-controls {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    flex: 1;
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn.secondary {
+    background: #f8f9fa;
+    color: #666;
+}
+
+.btn.secondary:hover {
+    background: #e9ecef;
+}
+
+/* Examples */
+.examples {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.examples-title {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.example-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.example-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.example-btn.positive {
+    background: #d4edda;
+    color: #155724;
+}
+
+.example-btn.negative {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.example-btn.neutral {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.example-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Results Section */
+.results-container {
+    min-height: 200px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.result-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sentiment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.sentiment-icon {
+    font-size: 2rem;
+}
+
+.sentiment-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sentiment-positive {
+    color: #28a745;
+}
+
+.sentiment-negative {
+    color: #dc3545;
+}
+
+.sentiment-neutral {
+    color: #6c757d;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.metric {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.polarity-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.polarity-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* Chart Section */
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+/* History Section */
+.history-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.no-history {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.history-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #ddd;
+    animation: slideIn 0.3s ease;
+}
+
+.history-item.positive {
+    border-left-color: #28a745;
+}
+
+.history-item.negative {
+    border-left-color: #dc3545;
+}
+
+.history-item.neutral {
+    border-left-color: #6c757d;
+}
+
+.history-text {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.history-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+/* Loading State */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

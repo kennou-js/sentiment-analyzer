@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 Sentiment Analysis Dashboard</h1>
+            <p class="subtitle">Analyze the sentiment of any text in real-time</p>
+        </header>
+        
+        <main class="dashboard">
+            <!-- Text Input Section -->
+            <section class="card input-section">
+                <h2>🔍 Analyze Text</h2>
+                <div class="text-input-container">
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Enter text to analyze sentiment..."
+                        rows="5"
+                    ></textarea>
+                    <div class="input-controls">
+                        <button id="analyzeBtn" class="btn primary">
+                            <span class="btn-text">Analyze Sentiment</span>
+                            <span class="btn-loader" style="display: none;">⏳</span>
+                        </button>
+                        <button id="clearBtn" class="btn secondary">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="examples">
+                    <p class="examples-title">Try these examples:</p>
+                    <div class="example-buttons">
+                        <button class="example-btn positive" data-text="I love this product! It's absolutely amazing and works perfectly!">
+                            😊 Positive
+                        </button>
+                        <button class="example-btn negative" data-text="Terrible service. I will never buy from them again. Worst experience ever.">
+                            😠 Negative
+                        </button>
+                        <button class="example-btn neutral" data-text="The package arrived on Monday. It was delivered by the postal service.">
+                            😐 Neutral
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Results Display -->
+            <section class="card results-section">
+                <h2>📈 Analysis Results</h2>
+                <div id="resultsContainer" class="results-container">
+                    <div class="no-results">
+                        <p>Enter text above to see sentiment analysis results</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- History & Charts (Will be implemented in Phase 3) -->
+            <section class="card chart-section">
+                <h2>📊 Sentiment Trends</h2>
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </section>
+            
+            <!-- History Section (Will be implemented in Phase 4) -->
+            <section class="card history-section">
+                <h2>📝 Analysis History</h2>
+                <div id="historyList" class="history-list">
+                    <p class="no-history">No analysis history yet</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Sentiment Analysis Dashboard • Built with Flask & TextBlob</p>
+        </footer>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
